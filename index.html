@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrusha_wav | Стример</title>
+    <link rel="stylesheet" href="style.css"> <!-- Подключаем стиль -->
+</head>
+<body>
+    <!-- Картинка, которая появляется при наведении на край экрана -->
+    <img src="/mnt/data/фуррриии.jpg" alt="Furry" class="hidden-image" id="furry-image">
+
+    <div class="container">
+        <h1>Добро пожаловать на сайт Andrusha_wav!</h1>
+        <p>Andrusha_wav — это увлекательные стримы на Twitch! Следите за стримами, присоединяйтесь к нашему сообществу и не пропустите захватывающие моменты.</p>
+        
+        <a href="https://www.twitch.tv/andrusha_wav" class="twitch-link" target="_blank">Смотреть стримы на Twitch</a>
+        
+        <div class="socials">
+            <a href="https://www.youtube.com/@wav_andrusha" target="_blank">YouTube</a>
+            <a href="https://discord.gg/mhhKX7UJcj" target="_blank">Discord</a>
+        </div>
+
+        <div class="twitch-widget">
+            <iframe
+                src="https://player.twitch.tv/?channel=andrusha_wav&autoplay=true"
+                height="600" width="100%" frameborder="0" scrolling="no" allowfullscreen="true">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Потайная кнопка -->
+    <button class="hidden-button" id="show-gallery">Показать галерею</button>
+
+    <!-- Галерея -->
+    <div class="gallery" id="gallery">
+        <button class="close-gallery" id="close-gallery">Закрыть</button>
+        <div class="gallery-images">
+            <img src="https://via.placeholder.com/200x200.png?text=Фото+1" alt="Фото 1">
+            <img src="https://via.placeholder.com/200x200.png?text=Фото+2" alt="Фото 2">
+            <img src="https://via.placeholder.com/200x200.png?text=Фото+3" alt="Фото 3">
+            <img src="https://via.placeholder.com/200x200.png?text=Фото+4" alt="Фото 4">
+        </div>
+    </div>
+
+    <footer>
+        by Persikvin
+    </footer>
+
+    <script src="script.js"></script> <!-- Подключаем скрипт -->
+</body>
+</html>

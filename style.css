@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Основные стили страницы */
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    position: relative;
+}
+
+/* Розовое сияние по бокам */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: #ff66b2;
+    box-shadow: 0 0 30px rgba(255, 102, 178, 0.7); /* Розовое свечение */
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+}
+
+body::after {
+    right: 0;
+}
+
+/* Стиль для картинки, которая будет появляться */
+.hidden-image {
+    position: fixed;
+    top: 50%;
+    left: -150px; /* Скрыта за левым краем экрана */
+    transform: translateY(-50%);
+    transition: left 0.5s ease;
+    z-index: 1000;
+    opacity: 0; /* Изначально невидимая */
+    width: 120px; /* Уменьшение ширины картинки */
+    height: auto; /* Высота будет пропорциональна ширине */
+}
+
+/* Контейнер для содержимого */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+h1 {
+    color: #ff66b2;
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+p {
+    font-size: 18px;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.twitch-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff66b2;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.twitch-link:hover {
+    background: #cc528f;
+}
+
+.socials {
+    margin-top: 30px;
+}
+
+.socials a {
+    margin: 0 15px;
+    font-size: 20px;
+    color: #ff66b2;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: #fff;
+}
+
+/* Виджет с трансляцией */
+.twitch-widget {
+    margin-top: 50px;
+    border: 5px solid #ff66b2;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Потайная кнопка, которая будет невидимой */
+.hidden-button {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background-color: #ff66b2;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0; /* Изначально невидимая */
+    transition: opacity 0.3s ease;
+}
+
+/* Появление кнопки при наведении */
+.hidden-button:hover {
+    opacity: 1;
+    background-color: #cc528f;
+}
+
+/* Галерея */
+.gallery {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+}
+
+.gallery img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.close-gallery {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff66b2;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.close-gallery:hover {
+    background-color: #cc528f;
+}
+
+/* Стиль для нижней надписи */
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.5;
+}
+    </style>
+</head>
+</html>
