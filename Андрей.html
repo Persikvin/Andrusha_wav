@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrusha_wav | Стример</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        /* Основные стили страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Розовое сияние по бокам */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15px;
+            background: #ff66b2;
+            box-shadow: 0 0 30px rgba(255, 102, 178, 0.7); /* Розовое свечение */
+            z-index: -1;
+        }
+
+        body::before {
+            left: 0;
+        }
+
+        body::after {
+            right: 0;
+        }
+
+        /* Стиль для картинки, которая будет появляться */
+        .hidden-image {
+            position: fixed;
+            top: 50%;
+            left: -150px; /* Скрыта за левым краем экрана */
+            transform: translateY(-50%);
+            transition: left 0.5s ease;
+            z-index: 1000;
+            opacity: 0; /* Изначально невидимая */
+            width: 120px; /* Уменьшение ширины картинки */
+            height: auto; /* Высота будет пропорциональна ширине */
+        }
+
+        /* Контейнер для содержимого */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff66b2;
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: bobbing 3s ease-in-out infinite;
+        }
+
+        @keyframes bobbing {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .twitch-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff66b2;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .twitch-link:hover {
+            background: #cc528f;
+        }
+
+        .socials {
+            margin-top: 30px;
+        }
+
+        .socials a {
+            margin: 0 15px;
+            font-size: 20px;
+            color: #ff66b2;
+            text-decoration: none;
+        }
+
+        .socials a:hover {
+            color: #fff;
+        }
+
+        /* Виджет с трансляцией */
+        .twitch-widget {
+            margin-top: 50px;
+            border: 5px solid #ff66b2;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        /* Потайная кнопка, которая будет невидимой */
+        .hidden-button {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #ff66b2;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0; /* Изначально невидимая */
+            transition: opacity 0.3s ease;
+        }
+
+        /* Появление кнопки при наведении */
+        .hidden-button:hover {
+            opacity: 1;
+            background-color: #cc528f;
+        }
+
+        /* Галерея */
+        .gallery {
+            display: none;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1001;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .close-gallery {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .close-gallery:hover {
+            background-color: #cc528f;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Картинка, которая появляется при наведении на край экрана -->
+    <img src="https://cdn.discordapp.com/attachments/981192206297747476/1338423357506453535/5bfa8abd325dc134.jpg?ex=67ab0763&is=67a9b5e3&hm=06832d7033a942c3adc81594ae5f1ecdddfcec166830ad6c4dc1fe2597359494&" alt="Furry" class="hidden-image" id="furry-image">
+
+    <div class="container">
+        <h1>Добро пожаловать на сайт Andrusha_wav!</h1>
+        <p>Andrusha_wav — это увлекательные стримы на Twitch! Следите за стримами, присоединяйтесь к нашему сообществу и не пропустите захватывающие моменты.</p>
+        
+        <a href="https://www.twitch.tv/andrusha_wav" class="twitch-link" target="_blank">Смотреть стримы на Twitch</a>
+        
+        <div class="socials">
+            <a href="https://www.youtube.com/@wav_andrusha" target="_blank">YouTube</a>
+            <a href="https://discord.gg/mhhKX7UJcj" target="_blank">Discord</a>
+        </div>
+
+        <div class="twitch-widget">
+            <iframe
+                src="https://player.twitch.tv/?channel=andrusha_wav&autoplay=true"
+                height="600" width="100%" frameborder="0" scrolling="no" allowfullscreen="true">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Потайная кнопка -->
+    <button class="hidden-button" id="show-gallery">Показать галерею</button>
+
+    <!-- Галерея -->
+    <div class="gallery" id="gallery">
+        <button class="close-gallery" id="close-gallery">Закрыть</button>
+        <div class="gallery-images">
+            <img src="https://cdn.discordapp.com/attachments/1337895883865325693/1338162274090745920/IMG_20250209_175844_817.jpg?ex=67aabcfb&is=67a96b7b&hm=12b7cad17e3f8dd7f43ad31c29120f66f9357fffeaaaa19553af8b70cc3a3e01&" alt="Фото 1">
+            <img src="https://cdn.discordapp.com/attachments/1337895883865325693/1338162274375831552/IMG_20250209_175846_499.jpg?ex=67aabcfc&is=67a96b7c&hm=01f1c0dec1cceccff0fbf0d8bb920e5702cdf8ea7d0c3877a7549b912fe1807c&" alt="Фото 2">
+            <img src="https://cdn.discordapp.com/attachments/1337895883865325693/1338518288120021023/gllLi9gG0tTJrp8iKLeKLdSkh7dY542GL67jqaHVLQGc08x_CFrhhbiIXAUCiBEw8BrDeZZJT8zc4UPSsXYyJ1ei.png?ex=67ab5fcc&is=67aa0e4c&hm=92f0c0f025807fbaf3216d6301be8aeb19bed7b0a400c351332d5f58316a0921&" alt="Фото 3">
+        </div>
+    </div>
+
+    <footer>
+        by Persikvin
+    </footer>
+
+    <script>
+        const showGalleryButton = document.getElementById('show-gallery');
+        const gallery = document.getElementById('gallery');
+        const closeGalleryButton = document.getElementById('close-gallery');
+
+        // Открыть галерею
+        showGalleryButton.addEventListener('click', function() {
+            gallery.style.display = 'block';
+        });
+
+        // Закрыть галерею
+        closeGalleryButton.addEventListener('click', function() {
+            gallery.style.display = 'none';
+        });
+
+        const furryImage = document.getElementById('furry-image');
+
+        // Функция для проверки позиции курсора
+        function checkMousePosition(event) {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // Проверка, близко ли курсор к краям экрана
+            const margin = 30; // допустимое расстояние от края экрана
+
+            // Если курсор в пределах заданного расстояния от края экрана, показываем картинку
+            if (mouseX < margin || mouseX > windowWidth - margin || mouseY < margin || mouseY > windowHeight - margin) {
+                furryImage.style.opacity = 1; // Показываем картинку
+                furryImage.style.left = mouseX < windowWidth / 2 ? '10px' : `${windowWidth - 160}px`; // Перемещаем влево или вправо
+            } else {
+                furryImage.style.opacity = 0; // Скрываем картинку
+            }
+        }
+
+        // Слушаем движение мыши
+        window.addEventListener('mousemove', checkMousePosition);
+    </script>
+</body>
+</html>
