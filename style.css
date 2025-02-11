@@ -12,15 +12,22 @@ body {
 }
 
 /* Розовое сияние по бокам */
-body::before, body::after {
-    content: '';
-    position: absolute;
+.glow {
+    position: fixed;
     top: 0;
-    bottom: 0;
     width: 15px;
-    background: #ff66b2;
-    box-shadow: 0 0 30px rgba(255, 102, 178, 0.7); /* Розовое свечение */
-    z-index: -1;
+    height: 100vh; /* Теперь сияние доходит до самого низа */
+    background: rgba(255, 102, 178, 0.3);
+    box-shadow: 0 0 30px 15px rgba(255, 102, 178, 0.4);
+    z-index: 1000;
+}
+
+.glow-left {
+    left: 0;
+}
+
+.glow-right {
+    right: 0;
 }
 
 body::before {
